@@ -34,11 +34,13 @@ abbr {
 
 .illustration__graphic {
   display: block;
+  animation: illustration_slidein 1s ease;
 }
 
 .illustration__shadow {
   position: absolute;
   top: rem(108px);
+  animation: shadow_grow 1s ease;
 }
 
 .content__heading {
@@ -51,6 +53,7 @@ abbr {
 .content__block {
   display: flex;
   justify-content: space-between;
+  gap: rem(7px);
   border-bottom: 1px solid color(light-grayish-blue);
   padding-bottom: em(18px, 13px);
   &:not(:first-of-type) {
@@ -76,7 +79,7 @@ abbr {
       margin-bottom: em(13px, 13px);
     }
     & + .arrow_down {
-      transform: rotate(-180deg);
+      transform: rotate(180deg);
     }
   }
 }
@@ -85,7 +88,6 @@ abbr {
   width: rem(8px);
   height: rem(4px);
   margin-top: rem(5.8px);
-  margin-left: rem(7px);
   flex-shrink: 0;
   transition: 0.2s ease;
 }
@@ -98,4 +100,28 @@ abbr {
 }
 .attribution a {
   color: hsl(228, 45%, 44%);
+}
+
+@keyframes illustration_slidein {
+  from {
+    opacity: 0;
+    transform: translateY(rem(-50px));
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes shadow_grow {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }

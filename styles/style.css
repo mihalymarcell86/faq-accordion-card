@@ -42,11 +42,13 @@ abbr {
 
 .illustration__graphic {
   display: block;
+  animation: illustration_slidein 1s ease;
 }
 
 .illustration__shadow {
   position: absolute;
   top: 9rem;
+  animation: shadow_grow 1s ease;
 }
 
 .content__heading {
@@ -61,6 +63,7 @@ abbr {
 .content__block {
   display: flex;
   justify-content: space-between;
+  gap: 0.5833333333rem;
   border-bottom: 1px solid hsl(240deg, 5%, 91%);
   padding-bottom: 1.3846153846em;
 }
@@ -90,14 +93,13 @@ abbr {
   margin-bottom: 1em;
 }
 .content__question[open] + .arrow_down {
-  transform: rotate(-180deg);
+  transform: rotate(180deg);
 }
 
 .arrow_down {
   width: 0.6666666667rem;
   height: 0.3333333333rem;
   margin-top: 0.4833333333rem;
-  margin-left: 0.5833333333rem;
   flex-shrink: 0;
   transition: 0.2s ease;
 }
@@ -111,6 +113,27 @@ abbr {
 
 .attribution a {
   color: hsl(228deg, 45%, 44%);
+}
+
+@keyframes illustration_slidein {
+  from {
+    opacity: 0;
+    transform: translateY(-4.1666666667rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes shadow_grow {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
