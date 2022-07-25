@@ -1,6 +1,21 @@
-@use "sass:math";
+$REM: 12;
+$font-kumbh-sans: "Kumbh Sans", sans-serif;
 
-$REM: undefined;
-$breakpoint: undefined;
+$w-mobile: 375px;
+$h-mobile: 768px;
+$w-desktop: 1440px;
+$h-desktop: 768px;
 
-$colors: ();
+$colors: (
+  very-dark-desaturated-blue: hsl(238, 29%, 16%),
+  soft-red: hsl(14, 88%, 65%),
+  very-dark-grayish-blue: hsl(237, 12%, 33%),
+  dark-grayish-blue: hsl(240, 6%, 50%),
+  light-grayish-blue: hsl(240, 5%, 91%),
+);
+
+$gradient-background: linear-gradient(
+  180deg,
+  hsl(273, 75%, 66%) 0%,
+  hsl(240, 73%, 65%) 100%
+);
