@@ -24,16 +24,28 @@
   <body>
     <main class="card">
       <div class="card__illustration">
-        <img
-          src="./images/illustration-woman-online-mobile.svg"
-          alt=""
-          class="illustration__graphic"
-        />
-        <img
-          src="./images/bg-pattern-mobile.svg"
-          alt=""
-          class="illustration__shadow"
-        />
+        <picture>
+          <source
+            media="(min-width: 1440px)"
+            srcset="./images/illustration-woman-online-desktop.svg"
+          />
+          <img
+            src="./images/illustration-woman-online-mobile.svg"
+            alt=""
+            class="illustration__graphic"
+          />
+        </picture>
+        <picture>
+          <source
+            media="(min-width: 1440px)"
+            srcset="./images/bg-pattern-desktop.svg"
+          />
+          <img
+            src="./images/bg-pattern-mobile.svg"
+            alt=""
+            class="illustration__shadow"
+          />
+        </picture>
       </div>
       <div class="card__content">
         <h1 class="content__heading">
@@ -42,40 +54,50 @@
         <div class="content__block">
           <details class="content__question">
             <summary>How many team members can I invite?</summary>
-            You can invite up to 2 additional users on the Free plan. There is
-            no limit on team members for the Premium plan.
+            <p class="content__answer">
+              You can invite up to 2 additional users on the Free plan. There is
+              no limit on team members for the Premium plan.
+            </p>
           </details>
           <img src="./images/icon-arrow-down.svg" alt="" class="arrow_down" />
         </div>
         <div class="content__block">
           <details class="content__question">
             <summary>What is the maximum file upload size?</summary>
-            No more than 2GB. All files in your account must fit your allotted
-            storage space.
+            <p class="content__answer">
+              No more than 2GB. All files in your account must fit your allotted
+              storage space.
+            </p>
           </details>
           <img src="./images/icon-arrow-down.svg" alt="" class="arrow_down" />
         </div>
         <div class="content__block">
           <details class="content__question">
             <summary>How do I reset my password?</summary>
-            Click “Forgot password” from the login page or “Change password”
-            from your profile page. A reset link will be emailed to you.
+            <p class="content__answer">
+              Click “Forgot password” from the login page or “Change password”
+              from your profile page. A reset link will be emailed to you.
+            </p>
           </details>
           <img src="./images/icon-arrow-down.svg" alt="" class="arrow_down" />
         </div>
         <div class="content__block">
           <details class="content__question">
             <summary>Can I cancel my subscription?</summary>
-            Yes! Send us a message and we’ll process your request no questions
-            asked.
+            <p class="content__answer">
+              Yes! Send us a message and we’ll process your request no questions
+              asked.
+            </p>
           </details>
           <img src="./images/icon-arrow-down.svg" alt="" class="arrow_down" />
         </div>
         <div class="content__block">
           <details class="content__question">
             <summary>Do you provide additional support?</summary>
-            Chat and email support is available 24/7. Phone lines are open
-            during normal business hours.
+            <p class="content__answer">
+              Chat and email support is available 24/7. Phone lines are open
+              during normal business hours.
+            </p>
           </details>
           <img src="./images/icon-arrow-down.svg" alt="" class="arrow_down" />
         </div>
