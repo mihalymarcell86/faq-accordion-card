@@ -149,7 +149,7 @@ abbr {
 }
 @media (min-width: 1100px) {
   .card__question-list {
-    margin: 5.4166666667rem 7.9166666667rem 0.25rem 6.9166666667rem;
+    margin: 5.4166666667rem 7.9166666667rem 6.9166666667rem 0.25rem;
   }
 }
 
