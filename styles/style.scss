@@ -10,8 +10,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  @media (min-width: 1440px) {
+  @media (min-width: $w-desktop) {
     padding-top: rem(129px);
+    padding-bottom: rem(130px);
   }
 }
 
@@ -34,9 +35,8 @@ abbr {
     max-width: rem(920px);
     flex-direction: row;
     justify-content: space-between;
-    align-items: flex-start;
-    padding: rem(65px) rem(95px) rem(83px) rem(0px);
-    overflow: hidden;
+    align-self: stretch;
+    padding: 0;
   }
 }
 
@@ -45,11 +45,16 @@ abbr {
   position: absolute;
   top: rem(-108px);
   @media (min-width: $w-desktop) {
-    position: static;
-    align-self: flex-start;
-    padding-top: rem(5px);
-    transform: translate(rem(-84px));
+    position: relative;
+    top: 0;
     height: 100%;
+  }
+}
+
+.illustration-wrapper {
+  @media (min-width: $w-desktop) {
+    padding-top: rem(70px);
+    overflow: hidden;
   }
 }
 
@@ -57,35 +62,80 @@ abbr {
   display: block;
   width: rem(237px);
   height: rem(180px);
-  animation: illustration_slidein 1s ease;
+  animation: {
+    name: fadein, slidein;
+    duration: 1s, 1s;
+    timing-function: ease, ease;
+  }
   @media (min-width: $w-desktop) {
     width: rem(472px);
     height: rem(359px);
+    margin-left: rem(-84px);
+  }
+}
+
+.shadow-wrapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  @media (min-width: $w-desktop) {
+    width: 100%;
+    overflow: hidden;
   }
 }
 
 .illustration__shadow {
   position: absolute;
   top: rem(108px);
-  animation: shadow_grow 1s ease;
+  animation: {
+    name: fadein, shadow_grow;
+    duration: 1s, 1s;
+    timing-function: ease, ease;
+  }
   @media (min-width: $w-desktop) {
     width: rem(964px);
     height: rem(944px);
-    top: rem(-359px);
-    left: rem(-492px);
+    top: rem(-294px);
+    left: rem(-576px);
     z-index: -1;
   }
 }
 
-.card__content {
-  width: 100%;
-  max-width: rem(350px);
+.box-wrapper {
   @media (min-width: $w-desktop) {
-    padding-left: rem(3px);
+    position: absolute;
+    width: rem(90px);
+    height: rem(106px);
+    top: rem(206.12px);
+    left: rem(-42.07px);
+    animation: {
+      name: fadein, slidein;
+      duration: 1s, 2s;
+      timing-function: ease, ease;
+      delay: 0s, 0s;
+    }
   }
 }
 
-.content__heading {
+.illustration__box {
+  display: none;
+  @media (min-width: $w-desktop) {
+    display: block;
+    z-index: 1;
+    margin-top: rem(-3px);
+    margin-left: rem(-51px);
+  }
+}
+
+.card__question-list {
+  width: 100%;
+  max-width: rem(350px);
+  @media (min-width: $w-desktop) {
+    margin: rem(65px) rem(95px) rem(3px) rem(83px);
+  }
+}
+
+.list__heading {
   @include setFont(rem(32px), 40px, 700);
   color: color(very-dark-desaturated-blue);
   text-align: center;
@@ -96,10 +146,7 @@ abbr {
   }
 }
 
-.content__block {
-  display: flex;
-  justify-content: space-between;
-  gap: rem(7px);
+.list__item {
   border-bottom: 1px solid color(light-grayish-blue);
   padding-bottom: em(18px, 13px);
   &:not(:first-of-type) {
@@ -107,30 +154,37 @@ abbr {
   }
 }
 
-.content__question {
+.list__question {
   @include setFont(rem(13px), 16px, 400);
   color: color(dark-grayish-blue);
+  width: 100%;
+
   summary {
     color: color(very-dark-grayish-blue);
     list-style-type: none;
     cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    gap: rem(7px);
     &:hover {
       color: color(soft-red);
     }
   }
+
   &[open] {
     summary {
       font-weight: 700;
       margin-bottom: em(12px, 13px);
-      @media (min-width: $w-desktop) {
+      @media (min-width: 700px) {
         margin-bottom: em(10px, 14px);
       }
     }
-    & + .arrow_down {
+
+    & .arrow_down {
       transform: rotate(180deg);
     }
   }
-  @media (min-width: $w-desktop) {
+  @media (min-width: 700px) {
     @include setFont(rem(14px), 17px);
   }
 }
@@ -141,12 +195,12 @@ abbr {
   margin-top: rem(5.8px);
   flex-shrink: 0;
   transition: 0.2s ease;
-  @media (min-width: $w-desktop) {
+  @media (min-width: 700px) {
     margin-top: rem(6.8px);
   }
 }
 
-.content__answer {
+.list__answer {
   @include setFont(rem(12px), 18px, 400);
 }
 
@@ -160,26 +214,32 @@ abbr {
   color: hsl(228, 45%, 44%);
 }
 
-@keyframes illustration_slidein {
+@keyframes fadein {
   from {
     opacity: 0;
-    transform: translateY(rem(-50px));
   }
 
   to {
     opacity: 1;
-    transform: none;
+  }
+}
+
+@keyframes slidein {
+  from {
+    transform: translateY(rem(-50px));
+  }
+
+  to {
+    transform: translateY(0);
   }
 }
 
 @keyframes shadow_grow {
   from {
-    opacity: 0;
     transform: scale(0.5);
   }
 
   to {
-    opacity: 1;
     transform: none;
   }
 }
